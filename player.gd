@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node) -> void: 
 	if "Goal" in body.get_groups():
-		print("you win")
+		complete_level(body.file_path)
 
 	if "Hazard" in body.get_groups():
 		crash_secuence()
@@ -28,3 +28,6 @@ func crash_secuence() -> void:
 	#Recalculo de choque en la escena.
 	get_tree().call_deferred("reload_current_scene")
 	
+func complete_level(next_level_path: String) -> void:
+	print("level completed")
+	get_tree().change_scene_to_file(next_level_path)
