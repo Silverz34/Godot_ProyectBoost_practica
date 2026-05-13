@@ -31,7 +31,7 @@ func crash_secuence() -> void:
 
 	set_process(false)
 	is_transition = true
-	
+
 	var tween = create_tween()
 	tween.tween_interval(1.0)
 	tween.tween_callback(get_tree().reload_current_scene)
@@ -40,4 +40,6 @@ func crash_secuence() -> void:
 	
 func complete_level(next_level_path: String) -> void:
 	print("level completed")
-	get_tree().call_deferred("change_scene_to_file", next_level_path)
+	var tween = create_tween()
+	tween.tween_interval(1.0)
+	tween.tween_callback(get_tree().change_scene_to_file.bind(next_level_path))
