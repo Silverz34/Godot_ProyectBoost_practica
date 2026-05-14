@@ -18,6 +18,7 @@ var is_transition: bool = false
 @onready var left_booster_particles: GPUParticles3D = $LeftBoosterParticles
 
 @onready var explosion_particles: GPUParticles3D = $ExplosionParticles
+@onready var success_particles: GPUParticles3D = $SuccessParticles
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -69,7 +70,7 @@ func crash_secuence() -> void:
 	
 func complete_level(next_level_path: String) -> void:
 	print("level completed")
-
+	success_particles.emitting = true 
 	success_audio.play()
 
 	var tween = create_tween()

@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://nx1pkn85b8rk" path="res://Audio/SFX - Main engine thrust.ogg" id="4_hqtel"]
 [ext_resource type="PackedScene" uid="uid://u0xacff2aqf6" path="res://Particles/booster_particles.tscn" id="5_sweqy"]
 [ext_resource type="PackedScene" uid="uid://dcecb8hw7dbrv" path="res://Particles/explosion_particles.tscn" id="6_2hs0m"]
+[ext_resource type="PackedScene" uid="uid://jfwajmrh6ca7" path="res://Particles/success_particles.tscn" id="7_1jxqw"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_hqtel"]
 
@@ -47,5 +48,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -1, -0.349)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, -1, -0.349)
 
 [node name="ExplosionParticles" parent="." unique_id=748537970 instance=ExtResource("6_2hs0m")]
+
+[node name="SuccessParticles" parent="." unique_id=350930394 instance=ExtResource("7_1jxqw")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
