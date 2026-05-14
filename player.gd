@@ -6,6 +6,7 @@ extends RigidBody3D
 
 var is_transition: bool = false 
 
+@onready var explosion_audio: AudioStreamPlayer = $ExplosionAudio
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,13 +30,14 @@ func _on_body_entered(body: Node) -> void:
 
 #funcion para recheckpoit al momento de estrellarse con la base 
 func crash_secuence() -> void:
-	print("KABOOM!")
+	print("BOOOM!")
+	explosion_audio.play()
 
 	set_process(false)
 	is_transition = true
 
 	var tween = create_tween()
-	tween.tween_interval(1.0)
+	tween.tween_interval(1.5)
 	tween.tween_callback(get_tree().reload_current_scene)
 	#Recalculo de choque en la escena.
 	
