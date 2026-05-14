@@ -10,17 +10,28 @@ var is_transition: bool = false
 @onready var explosion_audio: AudioStreamPlayer = $ExplosionAudio
 @onready var success_audio: AudioStreamPlayer = $SuccessAudio
 @onready var rocket_audio: AudioStreamPlayer3D = $RocketAudio
+
+@onready var booster_particles: GPUParticles3D = $BoosterParticles
+@onready var right_booster_particles: GPUParticles3D = $RightBoosterParticles
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("boost"):
 		apply_central_force(basis.y * delta * thrust)
+		booster_particles.emitting = true 
+
 		if rocket_audio.playing == false:
 			rocket_audio.play()
+			
 		else:
 			rocket_audio.stop()
+			booster_particles.emitting = false
 			
 	if Input.is_action_pressed("rotate_left"):
 		apply_torque(Vector3(0.0, 0.0, torque_thrus * delta))
+		right_booster_particles.emitting = true 
+	else: 
+		right_booster_particles.emitting = false
 		
 	if Input.is_action_pressed("rotate_right"):
 		apply_torque(Vector3(0.0, 0.0, -torque_thrus * delta))

@@ -4,6 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://dbv731rvo0t6t" path="res://Audio/SFX - Death Explosion.ogg" id="2_onrkg"]
 [ext_resource type="AudioStream" uid="uid://dhh6rp56lb7ta" path="res://Audio/SFX - Success.ogg" id="3_i3pqv"]
 [ext_resource type="AudioStream" uid="uid://nx1pkn85b8rk" path="res://Audio/SFX - Main engine thrust.ogg" id="4_hqtel"]
+[ext_resource type="PackedScene" uid="uid://u0xacff2aqf6" path="res://booster_particles.tscn" id="5_sweqy"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_hqtel"]
 
@@ -34,5 +35,11 @@ stream = ExtResource("3_i3pqv")
 [node name="RocketAudio" type="AudioStreamPlayer3D" parent="." unique_id=404145241]
 stream = ExtResource("4_hqtel")
 volume_db = 13.793
+
+[node name="BoosterParticles" parent="." unique_id=363075582 instance=ExtResource("5_sweqy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="RightBoosterParticles" parent="." unique_id=667406623 instance=ExtResource("5_sweqy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -1, -0.349)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
