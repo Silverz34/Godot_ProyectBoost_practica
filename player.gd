@@ -11,8 +11,12 @@ var is_transition: bool = false
 @onready var success_audio: AudioStreamPlayer = $SuccessAudio
 @onready var rocket_audio: AudioStreamPlayer3D = $RocketAudio
 
+#Particles para el cohete al realizar la accion boost 
 @onready var booster_particles: GPUParticles3D = $BoosterParticles
+#Particles para el cohete al realizar la accion rotar 
 @onready var right_booster_particles: GPUParticles3D = $RightBoosterParticles
+@onready var left_booster_particles: GPUParticles3D = $LeftBoosterParticles
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -35,6 +39,9 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_pressed("rotate_right"):
 		apply_torque(Vector3(0.0, 0.0, -torque_thrus * delta))
+		left_booster_particles.emitting = true 
+	else: 
+		left_booster_particles.emitting = false
 
 func _on_body_entered(body: Node) -> void: 
 	if is_transition == false: 

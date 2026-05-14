@@ -42,4 +42,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 [node name="RightBoosterParticles" parent="." unique_id=667406623 instance=ExtResource("5_sweqy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -1, -0.349)
 
+[node name="LeftBoosterParticles" parent="." unique_id=2030559171 instance=ExtResource("5_sweqy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, -1, -0.349)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
