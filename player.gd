@@ -6,6 +6,8 @@ extends RigidBody3D
 
 var is_transition: bool = false 
 
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("boost"):
