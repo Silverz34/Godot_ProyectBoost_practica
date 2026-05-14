@@ -7,7 +7,7 @@ extends RigidBody3D
 var is_transition: bool = false 
 
 @onready var explosion_audio: AudioStreamPlayer = $ExplosionAudio
-
+@onready var success_audio: AudioStreamPlayer = $SuccessAudio
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -44,6 +44,9 @@ func crash_secuence() -> void:
 	
 func complete_level(next_level_path: String) -> void:
 	print("level completed")
+
+	success_audio.play()
+
 	var tween = create_tween()
-	tween.tween_interval(1.0)
+	tween.tween_interval(1.5)
 	tween.tween_callback(get_tree().change_scene_to_file.bind(next_level_path))

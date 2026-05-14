@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c3gel4vrab8g3" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="AudioStream" uid="uid://dbv731rvo0t6t" path="res://SFX - Death Explosion.ogg" id="2_onrkg"]
+[ext_resource type="AudioStream" uid="uid://dhh6rp56lb7ta" path="res://SFX - Success.ogg" id="3_i3pqv"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_hqtel"]
 
@@ -25,5 +26,8 @@ shape = SubResource("CylinderShape3D_4flbx")
 
 [node name="ExplosionAudio" type="AudioStreamPlayer" parent="." unique_id=1202457861]
 stream = ExtResource("2_onrkg")
+
+[node name="SuccessAudio" type="AudioStreamPlayer" parent="." unique_id=1127137361]
+stream = ExtResource("3_i3pqv")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
