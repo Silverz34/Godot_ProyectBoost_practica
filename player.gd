@@ -17,6 +17,7 @@ var is_transition: bool = false
 @onready var right_booster_particles: GPUParticles3D = $RightBoosterParticles
 @onready var left_booster_particles: GPUParticles3D = $LeftBoosterParticles
 
+@onready var explosion_particles: GPUParticles3D = $ExplosionParticles
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -54,6 +55,7 @@ func _on_body_entered(body: Node) -> void:
 #funcion para recheckpoit al momento de estrellarse con la base 
 func crash_secuence() -> void:
 	print("BOOOM!")
+	explosion_particles.emitting = true
 	explosion_audio.play()
 
 	set_process(false)
