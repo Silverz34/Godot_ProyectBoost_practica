@@ -6,11 +6,11 @@
 [ext_resource type="AudioStream" uid="uid://nx1pkn85b8rk" path="res://Audio/SFX - Main engine thrust.ogg" id="4_hqtel"]
 [ext_resource type="PackedScene" uid="uid://u0xacff2aqf6" path="res://Particles/booster_particles.tscn" id="5_sweqy"]
 [ext_resource type="PackedScene" uid="uid://dcecb8hw7dbrv" path="res://Particles/explosion_particles.tscn" id="6_2hs0m"]
-[ext_resource type="PackedScene" uid="uid://jfwajmrh6ca7" path="res://Particles/success_particles.tscn" id="7_1jxqw"]
+[ext_resource type="PackedScene" path="res://Particles/success_particles.tscn" id="7_1jxqw"]
+[ext_resource type="PackedScene" uid="uid://c7oluuops4x27" path="res://Modelo/cohete_bolly.glb" id="8_dw050"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_hqtel"]
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_4flbx"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dw050"]
+points = PackedVector3Array(-2.987868, -2.4352052, 0.0017547607, -0.10294938, -2.4352052, -2.987868, -2.987868, -2.4352052, 0.1023643, -2.9831886, -2.0308337, 0.0017547607, -0.10294938, -2.0308337, -2.9831886, -0.00233984, -2.4352052, -2.987868, 0.0017547607, -2.4352052, 2.987868, -2.9831886, -2.0308337, 0.1023643, -0.5299547, 3.9252694, -0.09359026, -0.46619654, 3.9252694, -0.26907206, -0.3462839, 3.9252694, -0.41238213, -0.00233984, -2.0308337, -2.9831886, -0.18425584, 3.9252694, -0.50597215, 0, 3.9252694, -0.5381439, 2.987868, -2.4352052, -0.10294938, 0.1023643, -2.4352052, 2.987868, 0.0017547607, -2.0308337, 2.9826033, -0.3462839, 3.9252694, 0.4117968, -0.46619654, 3.9252694, 0.26848674, -0.5299547, 3.9252694, 0.09300518, -0.0005850792, 5.17264, 0, 2.9826033, -2.0308337, -0.10294938, 0.18367076, 3.9252694, -0.50597215, 0.34569883, 3.9252694, -0.41238213, 2.987868, -2.4352052, -0.00233984, 0.1023643, -2.0308337, 2.9826033, 0, 3.9252694, 0.5375588, -0.18425584, 3.9252694, 0.50538707, 0.5293696, 3.9252694, 0.09300518, 0.5293696, 3.9252694, -0.09359026, 0.46561122, 3.9252694, -0.26907206, 0.18367076, 3.9252694, 0.50538707, 0.34569883, 3.9252694, 0.4117968, 0.46561122, 3.9252694, 0.26848674, 2.9826033, -2.0308337, -0.00233984)
 
 [node name="Player" type="RigidBody3D" unique_id=1588885509]
 axis_lock_linear_z = true
@@ -21,12 +21,6 @@ max_contacts_reported = 10
 linear_damp = 1.0
 angular_damp = 3.0
 script = ExtResource("1_4flbx")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=559994699]
-mesh = SubResource("CylinderMesh_hqtel")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1832944112]
-shape = SubResource("CylinderShape3D_4flbx")
 
 [node name="ExplosionAudio" type="AudioStreamPlayer" parent="." unique_id=1202457861]
 stream = ExtResource("2_onrkg")
@@ -39,16 +33,28 @@ stream = ExtResource("4_hqtel")
 volume_db = 13.793
 
 [node name="BoosterParticles" parent="." unique_id=363075582 instance=ExtResource("5_sweqy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0103158355, -0.7859198, -8.08239e-05)
 
 [node name="RightBoosterParticles" parent="." unique_id=667406623 instance=ExtResource("5_sweqy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -1, -0.349)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.52492046, -0.7647817, -0.008537769)
 
 [node name="LeftBoosterParticles" parent="." unique_id=2030559171 instance=ExtResource("5_sweqy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, -1, -0.349)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.544104, -0.78806365, -0.0014104843)
 
 [node name="ExplosionParticles" parent="." unique_id=748537970 instance=ExtResource("6_2hs0m")]
 
 [node name="SuccessParticles" parent="." unique_id=350930394 instance=ExtResource("7_1jxqw")]
 
+[node name="cohete_bolly" parent="." unique_id=556522336 instance=ExtResource("8_dw050")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="Cohete_Mesh" parent="cohete_bolly" index="0" unique_id=1545631192]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.11388847)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2027567176]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, -0.039860964)
+shape = SubResource("ConvexPolygonShape3D_dw050")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+
+[editable path="cohete_bolly"]

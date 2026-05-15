@@ -16,7 +16,7 @@ var is_transition: bool = false
 #Particles para el cohete al realizar la accion rotar 
 @onready var right_booster_particles: GPUParticles3D = $RightBoosterParticles
 @onready var left_booster_particles: GPUParticles3D = $LeftBoosterParticles
-
+#Particles para el cohete al momento de chocar y llegar a la meta(base) 
 @onready var explosion_particles: GPUParticles3D = $ExplosionParticles
 @onready var success_particles: GPUParticles3D = $SuccessParticles
 
